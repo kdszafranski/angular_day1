@@ -7,8 +7,22 @@
     <link rel="stylesheet" type="text/css" href="/assets/styles/style.css"/>
 
     <script type="application/javascript" src="/vendors/angular/angular.min.js"></script>
+    <script type="application/javascript" src="/assets/scripts/app.min.js"></script>
 </head>
 <body ng-app="myApp">
-<h1>Angular Zeta</h1>
+    <h1>Angular Zeta</h1>
+    <div class="container" ng-controller="welcomeController">
+        <p class="lead">Hello Zeta!</p>
+
+        <input ng-model="note.name" type="text" placeholder="Enter your name" />
+        <button ng-click="clickButton()" class="btn btn-info">Submit Info</button>
+
+        <div ng-repeat="people in nameArray">
+            <div class="col-md-2 well">
+                <p class="lead">{{people.name}}</p>
+            </div>
+
+        </div>
+    </div>
 </body>
 </html>
