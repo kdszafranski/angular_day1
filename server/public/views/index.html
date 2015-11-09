@@ -15,13 +15,13 @@
         <p class="lead">Hello Zeta!</p>
 
         <input ng-model="note.name" type="text" placeholder="Enter your name" />
-        <button ng-click="clickButton()" class="btn btn-info">Submit Info</button>
+        <button ng-click="clickButton(note)" class="btn btn-info">Submit Info</button>
 
+        <h3>People!</h3>
         <div ng-repeat="people in nameArray">
             <div class="col-md-2 well">
                 <p class="lead">{{people.name}}</p>
             </div>
-
         </div>
     </div>
 </body>

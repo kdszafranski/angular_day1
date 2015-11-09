@@ -1,15 +1,23 @@
 var myApp = angular.module('myApp', []);
 
-myApp.controller("welcomeController",['$scope', function($scope) {
+myApp.controller("welcomeController",['$scope', '$http', function($scope, $http) {
     // forward declaration
     $scope.note = {};
     $scope.nameArray = [];
 
-    $scope.clickButton = function() {
-        $scope.nameArray.push($scope.note);
-
-        console.log($scope.nameArray);
-
-        $scope.note = {};
+    //POST, argument supplied by ng-click on button element
+    $scope.clickButton = function(kittyFooFoo){
+        $http.post('/people', kittyFooFoo).then(function(response){
+            $scope.getPeople();
+        });
     };
+
+    //GET
+    $scope.getPeople = function(){
+        $http.get('/people').then(function(response){
+            $scope.nameArray = response.data;
+        });
+    };
+
+    $scope.getPeople();
 }]);
