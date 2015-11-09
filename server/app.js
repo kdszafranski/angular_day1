@@ -6,7 +6,7 @@ app.set("port", process.env.PORT || 5000);
 
 app.get("/*", function(req, res) {
     var file = req.params[0] || "views/index.html";
-    res.sendFile(path.join(__dirname, "./public", file));
+    res.sendFile(path.join(__dirname, "./public/", file));
 });
 
 app.listen(app.get("port"), function() {
